@@ -14,7 +14,14 @@
 <body>
     <div class="container">
         <div class="row">
-
+            <div class="col-md-8 col-md-offset-2">
+                <h2>Voici la liste de tous les sites :</h2>
+                <ul>
+                    <c:forEach var="sites" items="${ sites }">
+                        <li><c:out value="${ sites.nom }" /></li>
+                    </c:forEach>
+                </ul>
+            </div>
         </div>
 
     </div>

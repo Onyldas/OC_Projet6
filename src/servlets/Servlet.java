@@ -1,6 +1,6 @@
 package servlets;
 
-import bdd.ConnexionSite;
+import bdd.BddSite;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,8 +16,8 @@ public class Servlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ConnexionSite tableSite = new ConnexionSite();
+        BddSite tableSite = new BddSite();
         request.setAttribute("sites", tableSite.recupererSites());
-        this.getServletContext().getRequestDispatcher("/WEB-INF/bonjour.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 }

@@ -1,18 +1,16 @@
 package bdd;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import beans.Site;
 
-public class ConnexionSite {
+public class BddSite {
     private Connection connexion;
 
+
     public List<Site> recupererSites() {
-        List<Site> sites = new ArrayList<Site>();
+        List<Site> sites = new ArrayList<>();
         Statement statement = null;
         ResultSet resultat = null;
 
@@ -23,6 +21,7 @@ public class ConnexionSite {
         }
 
         try {
+            connexion = DriverManager.getConnection("jdbc:postgresql://localhost:5432/db_climbing","postgres","hiymsw");
             statement = connexion.createStatement();
 
             // Exécution de la requête
