@@ -2,6 +2,9 @@ package beans;
 
 public class Utilisateur {
 
+
+
+    public int id;
     public String pseudo;
     public String mail;
     public String motDePasse;
@@ -12,12 +15,21 @@ public class Utilisateur {
 
     }
 
-    public Utilisateur(String pseudo, String mail, String motDePasse, int age, boolean pro) {
+    public Utilisateur(int id, String pseudo, String mail, String motDePasse, int age, boolean pro) {
+        this.id = id;
         this.pseudo = pseudo;
         this.mail = mail;
         this.motDePasse = motDePasse;
         this.age = age;
         this.pro = pro;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getPseudo() {

@@ -7,11 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import bdd.BddUtilisateur;
 import beans.Utilisateur;
+import dao.*;
 
 @WebServlet(name = "SignUp")
 public class SignUp extends HttpServlet {
+
+    private UtilisateurDao utilisateurDao;
+
+    public void init() throws ServletException {
+        DaoFactory daoFactory = DaoFactory.getInstance();
+        this.utilisateurDao = daoFactory.getUtilisateurDao();
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Utilisateur utilisateur = new Utilisateur();
@@ -20,15 +28,13 @@ public class SignUp extends HttpServlet {
         utilisateur.setMotDePasse(request.getParameter("motDePasse"));
         utilisateur.setAge(Integer.parseInt(request.getParameter("age")));
 
-        BddUtilisateur tableUtilisateurs = new BddUtilisateur();
-        tableUtilisateurs.ajouterUtilisateur(utilisateur);
+        utilisateurDao.ajouter(utilisateur);
 
-        request.setAttribute("utilisateurs", tableUtilisateurs.recupererUtilisateurs());
+        request.setAttribute("utilisateurs", utilisateurDao.lister());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("utilisateurs", utilisateurDao.lister());
         this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
-        BddUtilisateur tableUtilisateurs = new BddUtilisateur();
-        request.setAttribute("utilisateurs", tableUtilisateurs.recupererUtilisateurs());
     }
 }

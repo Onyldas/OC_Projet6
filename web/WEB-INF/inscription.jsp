@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <h2>Inscrivez vous pour pouvoir profiter des différentes fonctionnalités de ce site web!</h2>
-            <form method="post" action="inscription">
+            <form method="post" action="/inscription">
                 <p>
                     <label for="pseudo">Pseudo : </label>
                     <input type="text" name="pseudo" id="pseudo" />

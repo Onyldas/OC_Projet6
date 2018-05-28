@@ -1,21 +1,25 @@
 package beans;
 
+import java.sql.Date;
+
 public class Site {
 
+    public int id;
     public String nom;
     public String description;
-    public String date;
+    public Date date;
     public String niveau;
     public int noteGlobale;
     public int altitude;
     public String adresse;
-    public String titreTopo;
+    public int idTopo;
 
     public Site(){
 
     }
 
-    public Site(String nom, String description, String date, String niveau, int noteGlobale, int altitude, String adresse, String titreTopo) {
+    public Site(int id, String nom, String description, Date date, String niveau, int noteGlobale, int altitude, String adresse, int idTopo) {
+        this.id = id;
         this.nom = nom;
         this.description = description;
         this.date = date;
@@ -23,8 +27,10 @@ public class Site {
         this.noteGlobale = noteGlobale;
         this.altitude = altitude;
         this.adresse = adresse;
-        this.titreTopo = titreTopo;
+        this.idTopo = idTopo;
     }
+
+    public int getId(){return id;}
 
     public String getNom() {
         return nom;
@@ -34,7 +40,7 @@ public class Site {
         return description;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -54,8 +60,12 @@ public class Site {
         return adresse;
     }
 
-    public String getTitreTopo() {
-        return titreTopo;
+    public int getIdTopo() {
+        return idTopo;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNom(String nom) {
@@ -66,7 +76,7 @@ public class Site {
         this.description = description;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -86,7 +96,7 @@ public class Site {
         this.adresse = adresse;
     }
 
-    public void setTitreTopo(String titreTopo) {
-        this.titreTopo = titreTopo;
+    public void setIdTopo(int titreTopo) {
+        this.idTopo = titreTopo;
     }
 }
