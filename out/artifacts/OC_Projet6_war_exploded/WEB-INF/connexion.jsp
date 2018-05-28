@@ -14,6 +14,9 @@
 </head>
 <body>
 <div class="container">
+
+    <%@ include file="includes/header.jsp" %>
+
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <c:if test="${ !empty sessionScope.pseudo }">

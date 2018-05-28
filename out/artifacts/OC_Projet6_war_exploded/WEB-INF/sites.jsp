@@ -10,17 +10,26 @@
 <html>
 <head>
     <title>Liste des sites</title>
+    <link rel="stylesheet" href="<c:url value="/css/bootstrap.css" />" />
+    <link rel="stylesheet" href="<c:url value="/css/sites.css" />" />
 </head>
 <body>
     <div class="container">
+
+        <%@ include file="includes/header.jsp" %>
+
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Voici la liste de tous les sites :</h2>
-                <ul>
-                    <c:forEach var="sites" items="${ sites }">
-                        <li><c:out value="${ sites.nom }" /></li>
-                    </c:forEach>
-                </ul>
+            <div class="col-md-12">
+                <h1>Voici la liste de tous les sites :</h1>
+
+                <c:forEach var="sites" items="${ sites }">
+                    <div class="col-md-8 col-md-offset-2 boiteSite">
+                        <h2><a href="/sites/${sites.id}"><c:out value="${ sites.nom }" /></a></h2>
+                        <p><c:out value="${ sites.description }"/></p>
+                        <h4>Niveau : <c:out value="${ sites.niveau }"/></h4>
+                    </div>
+                </c:forEach>
+
             </div>
         </div>
 

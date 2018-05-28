@@ -31,6 +31,15 @@
         <url-pattern>/connexion</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ListeSites</servlet-name>
+        <servlet-class>servlets.ListeSites</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListeSites</servlet-name>
+        <url-pattern>/sites</url-pattern>
+    </servlet-mapping>
+
     <jsp-config>
         <jsp-property-group>
             <url-pattern>*.jsp</url-pattern>
